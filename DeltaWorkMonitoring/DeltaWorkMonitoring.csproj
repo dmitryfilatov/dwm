@@ -14,23 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot/scripts\file.ts" />
-    <Content Remove="wwwroot/scripts\tsconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Properties\PublishProfiles\CustomProfile.pubxml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="wwwroot/scripts\file.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\scripts\file.ts" />
-    <Content Include="wwwroot\scripts\file1.ts" />
-    <Content Include="wwwroot\scripts\temp.js" />
-    <Content Include="wwwroot\scripts\tsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -78,33 +78,6 @@ namespace DeltaWorkMonitoring
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddConsole();
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-
-            //app.UseStatusCodePages();
-            //app.UseStaticFiles();
-            //app.UseMvcWithDefaultRoute();
-
-            ////var appDbCtx = app.ApplicationServices
-            ////    .GetRequiredService<ApplicationDbContext>();
-
-            ////var projects = appDbCtx.Projects;
-            ////foreach(var project in projects)
-            ////{
-            ////    var temp = project.Name;
-            ////}
-
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
-
-
             loggerFactory.AddConsole(LogLevel.Debug);
             loggerFactory.AddDebug();
 
@@ -121,11 +94,7 @@ namespace DeltaWorkMonitoring
             app.UseStaticFiles();
             app.UseSession();
             app.UseIdentity();
-            //app.UseGoogleAuthentication(new GoogleOptions
-            //{
-            //    ClientId = "925353132886-alt7ghebv2refu6qvfbj7faqm3cj83ur.apps.googleusercontent.com",
-            //    ClientSecret = "_MT0YL37Dirz8A9vs0EBuGfx"
-            //});
+
             app.UseGoogleAuthentication(new GoogleOptions
             {
                 ClientId = Configuration["Authentication:Google:ClientId"],
@@ -163,13 +132,6 @@ namespace DeltaWorkMonitoring
 
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Task}/{action=List}/{id?}");
-            //});
 
             IdentitySeedData.EnsurePopulated(app);
         }

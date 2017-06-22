@@ -1,0 +1,20 @@
+﻿@model Dictionary<string, object>
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="bg-primary panel-body"><h4>User Details</h4></div>
+
+<table class="table table-condensed table-bordered">
+    @foreach (var kvp in Model)
+    {
+        <tr><th>@kvp.Key</th><td>@kvp.Value</td></tr>
+    }
+</table>
+
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <a asp-controller="Account" asp-action="Logout"
+       class="btn btn-danger">Logout</a>
+    <a asp-action="UserProps" class="btn btn-default">Additional properties...</a>
+}

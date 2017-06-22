@@ -1,0 +1,20 @@
+﻿@model IEnumerable<DeltaWorkMonitoring.Models.TaskStatus>
+
+<a class="btn btn-block btn-default"
+   asp-action="List"
+   asp-controller="Task"
+   asp-route-status="">
+    Home
+</a>
+
+@foreach (var status in Model)
+{
+    <a class="btn btn-block 
+       @(status.ToString() == ViewBag.SelectedStatus ? "btn-primary" : "btn-default")"
+       asp-action="List"
+       asp-controller="Task"
+       asp-route-status="@status"
+       asp-route-page="1">
+        @status
+    </a>
+}

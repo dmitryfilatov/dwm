@@ -1,0 +1,23 @@
+﻿@model WorkTask
+
+<div class="well">
+    <h4>
+        <strong>@Model.Name</strong>
+        <span class="pull-right label label-primary">
+            @Model.Elapsed.ToString(@"hh\:mm\:ss")
+        </span>
+    </h4>
+    <span>Created: @Model.Created.ToString()</span>
+    <div class="pull-right">
+        <form asp-action="Delete" method="post">
+            <a asp-action="Edit" class="btn btn-link"
+               asp-route-taskId="@Model.Id">
+                Edit
+            </a>
+            <input type="hidden" name="TaskID" value="@Model.Id" />
+            <button type="submit" class="btn btn-link">
+                Delete
+            </button>
+        </form>
+    </div>
+</div>

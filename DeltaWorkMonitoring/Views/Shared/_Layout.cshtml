@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css"  />
+    <script asp-src-include="lib/jquery/**/jquery.min.js"></script>
+    <script asp-src-include="lib/bootstrap/js/dropdown.js"></script>
+    <title>Delta Work Monitoring</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <a class="navbar-brand" href="#">DELTA WORK MONITORING</a>
+        @await Component.InvokeAsync("UserMenu")
+    </div>
+    <div class="row panel">
+        <div id="statuses" class="col-xs-3">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div class="col-xs-8">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success">@TempData["message"]</div>
+            }
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
